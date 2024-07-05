@@ -14,10 +14,6 @@ variable "product" {
   description = "Top Level Resources Identification [string]"
 }
 
-variable "stack" {
-  description = "Stack Name for the set of resources [string]"
-}
-
 # EC2 Resource Variables
 
 variable "ec2_instance_count_medium_app" {
@@ -33,7 +29,7 @@ variable "ec2_instance_type" {
 
 variable "ec2_volume_size" {
   description = "Volume size of runner"
-  type = string
+  type = number
   
 }
 variable "ec2_ami" {

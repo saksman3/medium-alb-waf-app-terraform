@@ -5,6 +5,5 @@ locals {
     Name    = local.name
     Env     = var.env
     Product = var.product
-    Stack   = var.stack
   }
 }

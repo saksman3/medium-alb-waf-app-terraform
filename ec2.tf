@@ -54,11 +54,11 @@ resource "aws_instance" "medium_app" {
     connection {
       type                = "ssh"
       user                = "ubuntu"
-      private_key         = file("~/.ssh/id_rsa_github")
+      private_key         = file("~/.ssh/id_rsa_github") #replace this with your own keys
       host                = self.private_ip
       bastion_host        = aws_instance.bastion_host.public_ip
       bastion_user        = "ubuntu"
-      bastion_private_key = file("~/.ssh/medium-dev-key")
+      bastion_private_key = file("~/.ssh/medium-dev-key") #replace this with your own keys
     }
   }
   #Install Docker and start the container
@@ -75,18 +75,15 @@ resource "aws_instance" "medium_app" {
       "sudo systemctl enable docker",
       "sudo usermod -aG docker ubuntu",
       "sudo snap refresh amazon-ssm-agent",
-      # "aws configure set aws_access_key_id access_key_id",
-      # "aws configure set aws_secret_access_key access_key_sec",
-      # "aws configure set default.region us-east-1"
     ]
     connection {
       type                  = "ssh"
       user                  = "ubuntu"  # Adjust based on your AMI's default user
-      private_key           = file("~/.ssh/id_rsa_github")
+      private_key           = file("~/.ssh/id_rsa_github") #replace this with your own keys
       host                  = self.private_ip
       bastion_host          = aws_instance.bastion_host.public_ip
       bastion_user          = "ubuntu"
-      bastion_private_key   = file("~/.ssh/medium-dev-key")
+      bastion_private_key   = file("~/.ssh/medium-dev-key") #replace this with your own keys
     }
   }
 
